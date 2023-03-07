@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Webová aplikace - správa pojištěnců - Luboš Plch"/>
+    <meta name="keywords" content="frontend developer, junior programátor, JavaScript, HTML, CSS"/>
+    <meta name="author" content="Luboš Plch"/>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Správa pojištěnců</title>
+  </head>
+
+  <body>
+    
+    <div id="container">
+        <div class="row">
+            <div class="col py-2">
+                <h4>Nový pojištěnec</h4>
+            </div>
+        </div>
+        <form method="post">
+        <div class="form-row">
+            <div class="form-group col-4">
+            </div>
+            <div class="form-group col-4">
+                <label for="jmeno">Jméno</label><br>
+                <input type="text" id="jmeno" placeholder="Jan"><br>
+            </div>
+            <div class="form-group col-4">
+                <label for="prijmeni">Příjmení</label><br>
+                <input type="text" id="prijmeni" placeholder="Novák"><br>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-4">
+            </div>
+
+            <div class="form-group col-4">
+                <label for="vek">Věk</label><br>
+                <input type="number" id="vek" placeholder="31" min="1" max="105"><br>
+            </div>
+            <div class="form-group col-4">
+                <label for="telefon">Telefon</label><br>
+                <input type="tel" id="telefon" placeholder="731 524 825" pattern="[0-9]{3} [0-9]{3} [0-9]{3}"><br> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col py-2 text-center">
+                <button id="ulozit" class="btn btn-primary">Uložit</button>
+            </div>
+        
+        </div>
+        </form>
+    </div>
+<!-- výpis pojištěných -->   
+    <section class="container">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Jméno a příjmení</th>
+                    <th>Telefon</th>
+                    <th>Věk</th>
+                </tr>
+            </thead>
+            <tbody id="seznam-pojistenych">
+                
+            </tbody>
+        </table>
+    </section>
+
+<!-- nalinkování js souborů -->
+    <script src="js/Zaznam.js"></script>
+    <script src="js/Pojistenec.js"></script>
+    <script src="js/obsluha.js"></script>
+  </body>
+</html>
