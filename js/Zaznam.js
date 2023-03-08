@@ -7,7 +7,7 @@ class Zaznam {
         this.prijmeniInput = document.getElementById("prijmeni");
         this.vekInput = document.getElementById("vek");
         this.telefonInput = document.getElementById("telefon");
-
+        
         this.ulozitButton = document.getElementById("ulozit");
         this.vypisElement = document.getElementById("seznam-pojistenych");
 
@@ -30,17 +30,33 @@ class Zaznam {
         vypisPojistence() {
             this.vypisElement.innerHTML=""; // vymaže obsah elementu
             
+            //naformátování telefonního čísla
+            const naformatovaniCisla = (str) => {
+                let cislo = str.replace(/\D/g, "").split('').reverse();
+                        return "876 543 210".replace(/\d/g, d=>cislo[d]);  
+            };
+
             // pomocí cyklu vypíšeme data do řádku a buněk
             for (const pojistenec of this.pojistenci) {
                 const radekPojistence = document.createElement("tr");
                 radekPojistence.insertAdjacentHTML("beforeend", `<td>${pojistenec.jmeno} ${pojistenec.prijmeni}</td>
-                <td>${pojistenec.telefon}</td>
+                <td>${naformatovaniCisla(pojistenec.telefon)}</td>
                 <td>${pojistenec.vek}</td>`);
 
                 this.vypisElement.appendChild(radekPojistence);
-            }
+            };
+
+            this._vymazFormular();  
         }
 
+        // vymažeme obsah formuláře
+        _vymazFormular() {
+            this.jmenoInput.value="";
+            this.prijmeniInput.value="";
+            this.vekInput.value="";
+            this.telefonInput.value="";
+        }
+        
         // metoda pro uložení pojištěnců do Local Storage
         ulozPojistence() {
             localStorage.setItem("pojistenci", JSON.stringify(this.pojistenci)); // uloží pojištěnce do local storage jako řádek stringu JSON
