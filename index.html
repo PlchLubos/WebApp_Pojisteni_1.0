@@ -12,46 +12,84 @@
   </head>
 
   <body>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col py-2">
-                <h4>Nový pojištěnec</h4>
-            </div>
-        </div>
-        <form method="post" id="formular">
-        <div class="form-row">
-            <div class="form-group col-auto offset-md-3">
-                <label for="jmeno">Jméno</label>
-                <input type="text" id="jmeno" placeholder="Jan" class="form-control">
-            </div>
-            <div class="form-group col-auto">
-                <label for="prijmeni">Příjmení</label>
-                <input type="text" id="prijmeni" placeholder="Novák" class="form-control">
-            </div>
-        </div>
+    <header> <!-- Navigační lišta -->
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-secondary">
+            <a class="navbar-brand ml-3 mr-5" href="index.html">PojištěníApp</a>
         
-        <div class="form-row">
-            <div class="form-group col-auto offset-md-3">
-                <label for="vek">Věk</label>
-                <input type="number" id="vek" placeholder="31" min="1" max="105" class="form-control">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#obsah-navigacni-listy" aria-controls="obsah-navigacni-listy" aria-expanded="false" aria-label="Rozbalit navigaci">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="obsah-navigacni-listy">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Pojištěnci <span class="sr-only">Pojištěnci</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="oaplikaci.html">O aplikaci <span class="sr-only">O aplikaci</span></a>
+                    </li>
+                </ul>
             </div>
-            <div class="form-group col-auto">
-                <label for="telefon">Telefon</label>
-                <input type="tel" id="telefon" placeholder="731 524 825" pattern="" class="form-control"><br>
+        </nav>
+    </header>
+
+<!-- Formulář pro nového pojištěnce -->
+    <section>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col pt-5">
+                    <h4>Nový pojištěnec</h4>
+                </div>
             </div>
+    
+            <div class="row">
+                <div class="col-sm-4 p-2">
+                    <img src="img/klient.png" alt="avatar" class="border px-3 pt-3 pb-1 mx-1 mt-3 float-left img-fluid">
+                </div>
+                <div class="col-sm-8 p-3">
+                    <form method="post" id="needs-validation" novalidate="novalidate">
+                        <div class="form-row">
+                            <div class="form-group col-sm">
+                                <label for="jmeno">Jméno</label>
+                                <input type="text" id="jmeno" placeholder="Jan" class="form-control" pattern="^\D+$" required>
+                                <div class="invalid-feedback"> Zadejte prosím správně jméno.</div>
+                            </div>
+                            <div class="form-group col-sm">
+                                <label for="prijmeni">Příjmení</label>
+                                <input type="text" id="prijmeni" placeholder="Novák" class="form-control" pattern="^\D+$" required>
+                                <div class="invalid-feedback"> Zadejte prosím správně příjmení.</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm">
+                                <label for="vek">Věk</label>
+                                <input type="number" id="vek" placeholder="31" min="1" max="105" class="form-control" pattern="^[1-9]?[0-9]$" required>
+                                <div class="invalid-feedback"> Zadejte pouze číslo.</div>
+                            </div>
+                            <div class="form-group col">
+                                <label for="telefon">Telefon</label>
+                                <input type="tel" id="telefon" placeholder="731 524 825" class="form-control" pattern="[^,.a-zA-Z]+" required>
+                                <div class="invalid-feedback"> Zadejte prosím telefon ve správném formátu.</div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <input id="ulozit" type="submit" value="Uložit" class="btn btn-primary mt-3 px-5">
+                        </div>
+                    </form>
+                </div>
+            </div>    
         </div>
-        <div class="row">
-            <div class="col py-2 text-center">
-               <input id="ulozit" type="submit" value="Uložit" class="btn btn-primary">
-                <!-- <button id="ulozit" class="btn btn-primary">Uložit</button>-->
-            </div>
-        </div>
-        </form>
-        <br>
-    </div>
+    </section>
+
+
 <!-- výpis pojištěných -->   
     <section class="container">
+        <div class="row mb-4">
+            <div class="col pt-2">
+                <h4>Pojištěnci</h4>
+            </div>
+        </div>
         <table class="table table-bordered table-hover table-sm">
             <thead class="thead-light">
                 <tr>
@@ -70,5 +108,9 @@
     <script src="js/Zaznam.js"></script>
     <script src="js/Pojistenec.js"></script>
     <script src="js/obsluha.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
 </html>

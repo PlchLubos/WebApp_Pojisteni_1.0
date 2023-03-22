@@ -2,3 +2,4 @@
 
 const zaznam = new Zaznam();
 zaznam.vypisPojistence();
+

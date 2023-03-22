@@ -1,3 +1,5 @@
+'use strict';
+
 class Zaznam {
     constructor() {
         const pojistenciZeStorage = localStorage.getItem("pojistenci"); //načtení pojištěnců z local storage podle klíče pojištěnci
@@ -14,18 +16,29 @@ class Zaznam {
         this._nastavUdalosti();
         //localStorage.clear(); //odkomentovat pro případ vymazání úložiště
         }
-        
+
         _nastavUdalosti() {
             this.ulozitButton.onclick = () => {
-                if (this.jmenoInput.value.length !== 0 && this.prijmeniInput.value.length !== 0 && this.vekInput.value.length !== 0 && this.telefonInput.value.length >= 9) {
-                    const pojistenec = new Pojistenec(this.jmenoInput.value, this.prijmeniInput.value, this.vekInput.value, this.telefonInput.value);
-                    this.pojistenci.push(pojistenec); //uloží do pole nový záznam
-                    this.ulozPojistence();
-                    this.vypisPojistence();
-                } else
-                    alert("Vyplňte prosím všechny údaje ve správném formátu!");
-            };
+                // ověření správného vyplnění formuláře
+                if (this.jmenoInput.checkValidity() 
+                    && this.prijmeniInput.checkValidity() 
+                    && this.vekInput.checkValidity() 
+                    &&this.telefonInput.checkValidity()) {
+  
+                        // uložení správně vyplněného formuláře do pole
+                        if (this.jmenoInput.value.length !== 0 && this.prijmeniInput.value.length !== 0 && this.vekInput.value.length !== 0 && this.telefonInput.value.length >= 9) {
+                            const pojistenec = new Pojistenec(this.jmenoInput.value, this.prijmeniInput.value, this.vekInput.value, this.telefonInput.value);
+                            this.pojistenci.push(pojistenec); //uloží do pole nový záznam
+                            this.ulozPojistence();
+                            this.vypisPojistence();
+                            //window.location.reload()
+                        } else
+                            alert("Nebyla vyplněna všechna pole správně");
+                     }
+                else console.log("Špatně vyplněný formulář")
+            }
         }
+        
         // metoda pro vypisování pojištěnců do tabulky
         vypisPojistence() {
             this.vypisElement.innerHTML=""; // vymaže obsah elementu
@@ -45,18 +58,8 @@ class Zaznam {
 
                 this.vypisElement.appendChild(radekPojistence);
             };
-
-            this._vymazFormular();  
         }
 
-        // vymažeme obsah formuláře
-        _vymazFormular() {
-            this.jmenoInput.value="";
-            this.prijmeniInput.value="";
-            this.vekInput.value="";
-            this.telefonInput.value="";
-        }
-        
         // metoda pro uložení pojištěnců do Local Storage
         ulozPojistence() {
             localStorage.setItem("pojistenci", JSON.stringify(this.pojistenci)); // uloží pojištěnce do local storage jako řádek stringu JSON

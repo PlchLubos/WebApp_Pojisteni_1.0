@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Webová aplikace - správa pojištěnců - Luboš Plch"/>
+    <meta name="keywords" content="frontend developer, junior programátor, JavaScript, HTML, CSS"/>
+    <meta name="author" content="Luboš Plch"/>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>O aplikaci</title>
+  </head>
+
+  <body>
+    <header> <!-- Navigační lišta -->
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-secondary">
+            <a class="navbar-brand ml-3 mr-5" href="index.html">PojištěníApp</a>
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#obsah-navigacni-listy" aria-controls="obsah-navigacni-listy" aria-expanded="false" aria-label="Rozbalit navigaci">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="obsah-navigacni-listy">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Pojištěnci <span class="sr-only">Pojištěnci</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="oaplikaci.html">O aplikaci <span class="sr-only">O aplikaci</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<!-- Informace o aplikaci -->  
+    <section class="container mt-5">
+        <div class="row">
+            <div class="col pt-5">
+                <h4>O aplikaci</h4>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6 pt-5">
+                
+                <h5>Specifikace:</h5>
+                <ul>
+                    <li>Aplikace obsahuje správu pojištěných
+                        <ul>
+                            <li>Vytvoření pojištěného
+                                <ul>
+                                    <li>Eviduje jméno, příjmení, věk, telefon</li>
+                                </ul>
+                            </li>
+                            <li>Zobrazení seznamu všech pojištěných</li>
+                        </ul>
+                    </li>
+                    <li>Dané entity jsou uloženy v Local Storage</li>
+                    <li>Obsahuje Bootstrap i JS validaci vstupního formuláře</li>
+                    <li>Telefonní číslo je formátováno v JS do jednotného formátu</li>
+                    <li>Aplikace je responzivní</li>
+                </ul>
+            </div>
+                <div class="col-md-6 pt-5">
+                <h5>Použité technologie:</h5>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS, Bootstrap 4</li>
+                    <li>JavaScript</li>
+                    <li>Git, GitHub</li>
+                </ul>
+                <h5>Autor aplikace:</h5>
+                <ul>
+                    <li class="list-unstyled">Luboš Plch</li>
+                    <li class="list-unstyled">CV - <a href="https://www.linkedin.com/in/lubosplch/" target="_blank"><img src="img/linkedin.png" alt="LinkedIn" width="90px" class=""></a></li>
+            </div>
+        </div>
+    </section>
+
+<!-- nalinkování js souborů -->
+    <script src="js/Zaznam.js"></script>
+    <script src="js/Pojistenec.js"></script>
+    <script src="js/obsluha.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
